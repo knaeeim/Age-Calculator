@@ -1,26 +1,25 @@
 let dob = document.getElementById("birthDate"); 
 let currentDate = document.getElementById("currentDate");
-let output = docuemnt.getElementById("output");
+let output = document.getElementById("output");
 
 document.getElementById("calculatebtn").addEventListener("click",()=>{
     if(dob.value=="" || currentDate.value==""){
-        output.innerHTML = "Please select the date";
-    } else{
-        calculateAgeDifference(dob.value.currentDate.value); 
+        output.innerHTML = "Please select the Correct date";
+    }else{
+        calculateAgeDifference(dob.value,currentDate.value); 
     }
 }); 
 
 function calculateAgeDifference(start,end){
     console.log(start);
-    let dobYear = parseInt(start.substrings(0,4), 10); 
-    let dobMonth = parseInt(start.substrings(5,7), 10);  
-    let dobDate = parseInt(start.substrings(8, 10), 10); 
-    let currYear = parseInt(end.substrings(0,4), 10);
-    let currMonth = parseInt(end.substrings(5,7), 10);
-    let currDate = parseInt(end.substrings(8, 10), 10);
+    let dobYear = parseInt(start.substring(0,4), 10); 
+    let dobMonth = parseInt(start.substring(5,7), 10);  
+    let dobDate = parseInt(start.substring(8, 10), 10); 
+    let currYear = parseInt(end.substring(0,4), 10);
+    let currMonth = parseInt(end.substring(5,7), 10);
+    let currDate = parseInt(end.substring(8, 10), 10);
 
     // year difference
-
     let yearAgeDiff = currYear - dobYear;
     
     let monthAgeDiff; 
@@ -29,7 +28,7 @@ function calculateAgeDifference(start,end){
     } 
     else{
         yearAgeDiff--;
-        monthAgeDiff = 12 + currYear - dobYear;
+        monthAgeDiff = 12 + currMonth - dobMonth;
     }
 
     let dateAgeDiff; 
